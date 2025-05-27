@@ -44,11 +44,8 @@ RUN /llama.cpp/build/bin/llama-quantize \
 
 RUN echo "==========Run llama-server=============================="
 
+WORKDIR /llama.cpp/build/bin
+
 EXPOSE 8080
 
-CMD [
-        "/llama.cpp/build/bin/llama-server", 
-        "-m", "/llama.cpp/build/bin/SmolLM2.q8.gguf", 
-        "--host", "0.0.0.0", 
-        "--port", "8080"
-    ]
+CMD ["./llama-server", "-m", "./SmolLM2.q8.gguf", "--host", "0.0.0.0", "--port", "8080"]
