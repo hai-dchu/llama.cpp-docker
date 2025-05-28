@@ -34,18 +34,8 @@ RUN cmake --install build --config Release
 
 RUN chmod +x /llama.cpp/build/bin/*
 
-RUN echo "==========Quantize the model============================"
-
-RUN /llama.cpp/build/bin/llama-quantize \
-    /llama.cpp/SmolLM2.gguf \
-    /llama.cpp/build/bin/SmolLM2.q8.gguf \
-    Q8_0 \
-    16
-
 RUN echo "==========Run llama-server=============================="
-
-WORKDIR /llama.cpp/build/bin
 
 EXPOSE 8080
 
-CMD ["./llama-server", "-m", "./SmolLM2.q8.gguf", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["/llama.cpp/build/bin/llama-server", "-m", "./models/SmolLM2.q8.gguf", "--host", "0.0.0.0", "--port", "8080"]
