@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: llama-server
+    volumes:
+      - ./models:/llama.cpp/models
     ports:
       - "8080:8080"
     restart: always
