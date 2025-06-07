@@ -1,3 +1,9 @@
+# Docker & Docker Compose
+- Build and run llama.cpp, assuming that there is already an available model (SmolLM2.q8.gguf) available in `./models`
+## Upcoming changes
+- Model name as parameter
+- Port as parameter
+
 # llama.cpp
 
 ![llama](https://user-images.githubusercontent.com/1991296/230134379-7181e485-c521-4d23-a0d6-f7b3b61ba524.png)
